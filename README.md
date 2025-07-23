@@ -16,6 +16,7 @@ Run the pick‑and‑place script:
 
 Extras:
 - `nav.rviz` is an RViz config for the navigation robot.
+- **Full report and extended instructions are in `docs/`.**
 ---
 
 ## Video Demo
