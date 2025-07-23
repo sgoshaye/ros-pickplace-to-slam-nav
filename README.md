@@ -16,7 +16,11 @@ Run the pick‑and‑place script:
 
 Extras:
 - `nav.rviz` is an RViz config for the navigation robot.
-- `video-demo.mp4` shows the full simulation.
+---
+
+## Video Demo
+
+[![YouTube Demo](https://img.youtube.com/vi/XC-ISpkyecU/hqdefault.jpg)](https://youtu.be/XC-ISpkyecU)
 
 ---
 
