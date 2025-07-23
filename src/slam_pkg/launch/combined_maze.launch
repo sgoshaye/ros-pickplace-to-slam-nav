@@ -1,0 +1,13 @@
+<launch>
+    <!-- Centralized Gazebo Launch -->
+    <node pkg="gazebo_ros" type="gzserver" name="gazebo" args="-s libgazebo_ros_factory.so $(find rosbot_gazebo)/worlds/maze.world" output="screen" />
+
+    <node pkg="gazebo_ros" type="gzclient" name="gazebo_gui" output="screen" />
+
+    <!-- Include demo_final.launch -->
+    <include file="$(find panda_moveit_config)/launch/demo_final.launch" />
+
+    <!-- Include path3.launch -->
+    <include file="$(find slam_pkg)/launch/path3.launch" />
+</launch>
+

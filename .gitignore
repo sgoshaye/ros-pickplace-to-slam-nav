@@ -1,0 +1,9 @@
+build
+devel
+logs
+.install
+.catkin_tools
+.pyc
+.swp
+.bag
+__pycache__
