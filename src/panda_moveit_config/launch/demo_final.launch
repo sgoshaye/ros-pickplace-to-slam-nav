@@ -1,0 +1,30 @@
+<launch>
+    <!-- Launch Gazebo only once -->
+    <arg name="gazebo_gui" default="true" />
+    <arg name="paused" default="false" />
+
+    <!-- Launch Gazebo with the maze world -->
+    <include file="$(find rosbot_gazebo)/launch/maze_world.launch">
+        <arg name="paused" value="$(arg paused)" />
+        <arg name="use_sim_time" value="true" />
+    </include>
+
+    <!-- Include the demo_gazebo launch file -->
+    <include file="$(find panda_moveit_config)/launch/demo_gazebo.launch">
+        <arg name="gazebo_gui" value="$(arg gazebo_gui)" />
+        <arg name="paused" value="$(arg paused)" />
+    </include>
+
+    <!-- Include the path2 launch file -->
+    <include file="$(find slam_pkg)/launch/path2.launch">
+        <arg name="use_gazebo" value="false" />
+    </include>
+
+    <!-- Rename Gazebo server and client nodes -->
+    <node name="gazebo_server_maze" pkg="gazebo_ros" type="gzserver" args="$(find rosbot_gazebo)/worlds/maze.world" output="screen" />
+    <node name="gazebo_client_maze" pkg="gazebo_ros" type="gzclient" output="screen" if="$(arg gazebo_gui)" />
+
+    <node name="gazebo_server_demo" pkg="gazebo_ros" type="gzserver" args="$(find franka_gazebo)/worlds/empty.world" output="screen" />
+    <node name="gazebo_client_demo" pkg="gazebo_ros" type="gzclient" output="screen" if="$(arg gazebo_gui)" />
+</launch>
+
